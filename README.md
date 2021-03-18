@@ -54,4 +54,11 @@ If you need information about creating a key pair, here are some links to help y
 - [https://serverfault.com/questions/706336/how-to-get-a-pem-file-from-ssh-key-pair](https://serverfault.com/questions/706336/how-to-get-a-pem-file-from-ssh-key-pair)
 
 ## Bastion
-After all the resources are provisioned, you can see the public IP created as the bastion host. Unfortunately, there is no output to display this resource. You'll need to get it using the AWS Console. However, there is a conf. in [bastion.tf](./bastion.tf) that can setup a DNS name for your bastion host if you have a domain name setup in Rout53.
+After all the resources are provisioned, you can see the public IP created as the bastion host. Unfortunately, there is no output to display this resource. You'll need to get it using the AWS Console. However, there is a conf. in [bastion.tf](./bastion.tf) that can setup a DNS name for your bastion host if you have a domain name setup in Route53.
+You should be able to login to your bastion host using the following command:
+
+```bash
+$ ssh -i private-key.pem ec2-user@xx.xx.xx.xx
+```
+- private-key.pem correspond to the public key configured as the public_key
+- xx.xx.xx.xx is the public ip address of the EC2 instance deployed as the bastion host
